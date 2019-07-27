@@ -1,7 +1,5 @@
 package BinaryTree;
 
-import sun.jvm.hotspot.memory.Space;
-
 import java.util.*;
 
 public class BinaryTreeTraversalUtil {
@@ -234,5 +232,44 @@ public class BinaryTreeTraversalUtil {
             return 0;
         }
         return Math.max(HeightOfBinaryTree(root.left), HeightOfBinaryTree(root.right)) + 1;
+    }
+
+    public static void BoundaryTraversal (TreeNode root) {
+        PrintLeftNodeWithoutLeafNode(root);
+        PrintLeafNodes(root);
+        PrintRightNodeWithoutLeafNode(root.right);
+    }
+
+    private static void PrintLeftNodeWithoutLeafNode (TreeNode root) {
+        if (root == null) {
+            return;
+        } else if (root.left == null && root.right == null) {
+            return;
+        } else {
+            System.out.print(root.data + " ");
+            PrintLeftNodeWithoutLeafNode(root.left);
+        }
+    }
+
+    private static void PrintLeafNodes (TreeNode root) {
+        if (root == null) {
+            return;
+        } else if (root.left == null && root.right == null) {
+            System.out.print(root.data + " ");
+        } else {
+            PrintLeafNodes(root.left);
+            PrintLeafNodes(root.right);
+        }
+    }
+
+    private static void PrintRightNodeWithoutLeafNode (TreeNode root) {
+        if (root == null) {
+            return;
+        } else if (root.left == null && root.right == null) {
+            return;
+        } else {
+            PrintRightNodeWithoutLeafNode(root.right);
+            System.out.print(root.data + " ");
+        }
     }
 }

@@ -88,5 +88,18 @@ public class MainProgram {
         root4.left.right.right.right.right = new TreeNode(8);
 
         System.out.println("\n\nHeight of Binary Tree: " + BinaryTreeTraversalUtil.HeightOfBinaryTree(root4));
+
+        TreeNode root5 = new TreeNode(1);
+        root5.left = new TreeNode(2);
+        root5.right = new TreeNode(3);
+        root5.left.left = new TreeNode(4);
+        root5.left.right = new TreeNode(5);
+        root5.left.right.right = new TreeNode(6);
+        root5.right.right = new TreeNode(7);
+        root5.right.right.right = new TreeNode(8);
+
+        System.out.println("\n\nBinary Tree: Boundary Traversal");
+        BinaryTreeTraversalUtil.BoundaryTraversal(root5);
+
     }
 }
