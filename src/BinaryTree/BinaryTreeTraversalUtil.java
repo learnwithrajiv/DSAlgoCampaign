@@ -234,6 +234,13 @@ public class BinaryTreeTraversalUtil {
         return Math.max(HeightOfBinaryTree(root.left), HeightOfBinaryTree(root.right)) + 1;
     }
 
+    public static int TotalNodeCount (TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return (TotalNodeCount(root.left) + TotalNodeCount(root.right) + 1);
+    }
+
     public static void BoundaryTraversal (TreeNode root) {
         PrintLeftNodeWithoutLeafNode(root);
         PrintLeafNodes(root);
@@ -271,5 +278,16 @@ public class BinaryTreeTraversalUtil {
             PrintRightNodeWithoutLeafNode(root.right);
             System.out.print(root.data + " ");
         }
+    }
+
+    public static void MirrorOfBinaryTree (TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        MirrorOfBinaryTree (root.left);
+        MirrorOfBinaryTree (root.right);
+        TreeNode tempNode = root.left;
+        root.left = root.right;
+        root.right = tempNode;
     }
 }

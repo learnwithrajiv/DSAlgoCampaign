@@ -88,6 +88,7 @@ public class MainProgram {
         root4.left.right.right.right.right = new TreeNode(8);
 
         System.out.println("\n\nHeight of Binary Tree: " + BinaryTreeTraversalUtil.HeightOfBinaryTree(root4));
+        System.out.println("\nTotal Nodes in a Binary Tree: " + BinaryTreeTraversalUtil.TotalNodeCount(root4));
 
         TreeNode root5 = new TreeNode(1);
         root5.left = new TreeNode(2);
@@ -100,6 +101,13 @@ public class MainProgram {
 
         System.out.println("\n\nBinary Tree: Boundary Traversal");
         BinaryTreeTraversalUtil.BoundaryTraversal(root5);
+
+        System.out.println("\n\nBinary Tree: Mirror of tree");
+        System.out.print("BEFORE: ");
+        BinaryTreeTraversalUtil.InOrderTraversal(root5);
+        BinaryTreeTraversalUtil.MirrorOfBinaryTree(root5);
+        System.out.print("\nAFTER: ");
+        BinaryTreeTraversalUtil.InOrderTraversal(root5);
 
     }
 }
