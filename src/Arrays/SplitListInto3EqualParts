@@ -1,0 +1,72 @@
+//Split array into 3 equal parts (with equal sum)
+//First check if the total sum is divisible by 3, only then it would be possible to do so.
+
+int solution(int[] a) {
+
+    int len = a.length;
+    int sum = 0;
+    
+    //Checking feasibility if the array can be divided into parts and where to stop adding elements into the subarray.
+    for (int i = 0; i < len; i++) {
+        sum += a[i];
+    }
+    if (sum % 3 == 0) {
+        splitArray(a, len, (sum/3));
+    } else {
+        return 0;
+    }
+}
+
+int splitArray (int[] a, int len, int subarraySum) {
+    int subArrayCount = 0, currentArraySum = 0;
+    
+    for (int i = 0; i < len; i++) {
+        currentArraySum += a[i];
+        if (currentArraySum == subarraySum) {
+            subArrayCount++;
+        } else {
+            //The start of next subarray
+            currentArraySum = a[i];
+        }
+    }
+}
+
+// [0, -1, 0, -1, 0, -1, -1, -1, -1, -1] - Sum= -6 => Sum/3 = 2
+
+// [0, -1, 0, -1] remaining  [0,-1,-1,-1,-1]
+// [0, -1, 0, -1], [0,-1,-1] remaining [-1, -1] -- happy solution
+// [0, -1, 0, -1, 0] remaining  [-1,-1,-1,-1]
+
+
+// [0, -1, 0, -1] = -2
+// [0, -1, 0, -1, 0] = -2
+// [0, -1, 0, -1, 0, -1] not valid = -3 >> -1
+// [-1, -1]
+// [-1, -1, -1] not valid = -3 >> -1
+// [-1, -1]
+
+
+
+
+
+
+
+
+// 1. Sum should be multiple of 3
+// 
+
+/*
+
+[0, -1, 0, -1, 0, -1]: Sum=-3 - Can be done.
+
+[0, -1, 0, -1, 0, -1, -1] - Sum= -4
+
+[0, -1, 0, -1, 0, -1, -1, -1] - Sum= -5
+
+[0, -1, 0, -1, 0, -1, -1, -1, -1] - Sum= -6 => Sum/3 = 2
+
+[0, -2, 0, -1, 0, -2, -1, 1] - Sum= -5
+
+[0, -2, 0, -1, 0, -2, -1] - Sum= -6
+
+*/
